@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class Sidenav extends Component {
@@ -9,13 +8,12 @@ class Sidenav extends Component {
         super();
 
         this.state = {
-            menus: ['basics', 'components']
+            menus: ['basics', 'components','communication', 'composition']
         };
     }
 
     render() {
         //var seaText = this.state.sendChild;
-    
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
                 <a className="navbar-brand js-scroll-trigger" href="#page-top">
@@ -32,7 +30,7 @@ class Sidenav extends Component {
                     <ul className="navbar-nav">
                         {this.state.menus.map((value, index) => {
                             return (
-                                <li className="nav-item">
+                                <li className="nav-item" key={index}>
                                     <Link className="nav-link js-scroll-trigger" to={value}>{value}</Link>
                                 </li>
                             );
@@ -57,7 +55,8 @@ class Sidenav extends Component {
                 </div>
             </nav>
             );
-            }
-        }
+            
+    }
+}
         
         export default Sidenav;
